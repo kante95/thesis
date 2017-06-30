@@ -1,4 +1,4 @@
-\documentclass[10pt]{book}
+\documentclass[12pt]{book}
 \usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
@@ -94,9 +94,70 @@ Ring resonators have a lot of applications, for example they can be used as filt
 
 \chapter{Physical theory and mathematical model}
 \section{Non linear optics}
-An electric field inside a medium induce a dipole moment inside the media, the polarization $P$ is defined as the dipole moment per unit volume []. The relathion between the polarization and the electric field $E$ is in first approximation linear
-\[P = \varepsilon_0 \chi E\]
+An electric field inside a medium induce a dipole moment inside the media, the polarization $P$ is defined as the dipole moment per unit volume []. The relation between the polarization and the electric field $E$ is in first approximation linear
+\begin{equation}\label{linearP} \mathbf{P} = \varepsilon_0 \chi \mathbf{E}
+\end{equation}
+where $\varepsilon_0$ is the permittivity of free space and $\chi$ is the eletric susceptibility of the medium which is in general a second rank tensor in order to account for medium anisotropy. If the intensity of the electric field is strong enough, the relation between the field and the polarization is no longer linear and we need to expand the equation \eqref{linearP} in series, in general we find
+\[P_i  = \varepsilon_0(\sum_j \chi_{ij}^{(1)} E_j + \sum_{j,k}x_{ijk}^{(2)}E_jE_k + \sum_{j,k,l}\chi_{ijkl}^{(3)}E_jE_kE_l + \dots )\]
+where $\chi^{(i)}$ are tensor of rank $i+1$ and represent the $i$-order susceptibily. This leads to an entire new class of phenomena that have a great interest in photonics, in fact as we'll se later, an electric field with frequency $\omega_1$ can excite a new eletric field with different frequency $\omega_2$. Silicon is a centrosymmetric crystal, this means that if the eletric field change sign, the resulting polarization must change sign equally, hence the even order of susceptibily must vanish, so te first non linear effects of silicon are those of the third order and it's referred as Kerr nonlinearity. For silicon $\chi^{(3)}$ is in the order of $10^{-19} \frac{m^2}{V^2}$ for the real part and $10^{-5} \frac{m^2}{V^2}$ for the imaginary part responsible of the absorption.
 \section{Quantum optics}
+Since sFWM is a quantum phenomena, a quantum description of light is needed. Standard arguments \cite{book:cohen} leads to the quantization of the electric field, and to the introduction to a light particle: the photon. From a mathematical point of view, the quantization of the electric field is identical to an harmonic oscillator, thus a state with $n$ photons can be writtten with the Dirac's notation as $\Ket{n}$. The displacement field became an operator:
+\begin{equation}
+\mathbf{D}(\r) = \sum 
+\end{equation}
+The aim of this section is to find a correct quantum description for the coherent state of a laser. The photon state number $\Ket{n}$ cannot have the correct classical limit because the expectation value of the electric field on this state vanish no matter how large is the value of $n$. A common way to introduce a coherent state is to find the eigenstates of the annihilation operator:
+\begin{equation}\label{eigenvalue}
+a\ket{\alpha} = \alpha \ket{\alpha}
+\end{equation}
+where $\alpha$ can be a complex number. We can express this state as a sum of the number states $\ket{n}$, since they form a complete set:
+\[\ket{\alpha} = \sum_{n=0}^{+\infty} C_n \ket{n}\]
+equation \eqref{eigenvalue} becomes
+\[a\sum_{n=0}^{+\infty} C_n \ket{n} = \sum_{n=0}^{+\infty} C_n\sqrt{n}\ket{n-1} =\alpha\sum_{n=0}^{+\infty} C_n \ket{n}\]
+equation coefficients of $\ket{n}$ on both sides leads to
+\[C_n = \frac{\alpha}{\sqrt{n}}C_{n-1} = \frac{\alpha^2}{\sqrt{n(n-1)}} = \dots = \frac{\alpha^n}{\sqrt{n!}}C_0\]
+using the fact that the state must be normalized $\Braket{\alpha|\alpha} = 1$ is possible to determine $C_0$ and in conclusion the coherent state can be written as
+\begin{equation}\label{coherentstate}
+\ket{\alpha} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}
+\end{equation}
+to find a physical meaning of $\alpha$ we can evaluate the expectation value of the photon number operator $\hat{n} = a^\dagger a$:
+\[\braket{\alpha|\hat{n}\alpha} = |\alpha|^2 \]
+hence $|\alpha|^2$ is the avarege photon number of the field. The coherent states $\bra{\alpha}$ are used to represent a classica state, this is due to several reason which are
+\begin{enumerate}[(i)]
+\item the expectation value of the electric field is a classical field
+\item the fluctuations of the electric field is the same as for the vacuum
+\item the states become well localized in phase with increasing of the photon number
+\end{enumerate}
+an equivalent way to obtain a coherent state $\ket{\alpha}$ is to use the displacement operator defined as 
+$\hat{D}(\alpha) = e^{\alpha a^\dagger -\text{H.c}}$
+this operator applied on the vacumm generate exaclty $\ket{\alpha}$, in fact, using the () formula, the exponential can be written as:
+\[\hat{D}(\alpha) = e^{-\frac{1}{2}|\alpha|^2}e^{\alpha a^\dagger} e^{-\alpha^* a}\]
+when it acts on the vacuum the exponential with the annihilation operators does nothing, so the second exponential can be expanded in Taylor's series:
+\[\hat{D}(\alpha)\ket{vac} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty}\frac{(\alpha a^\dagger)^n}{n!}\ket{vac} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}  \]
+exaclty what we found in equation \eqref{coherentstate}
+
+
+
+
+
+\section{Asymptotic field treatment}
+Most of this section is developed in [], here i summarize the key point needed for the next chapter and ease the treatment to single mode field.\\ The idea behind this theory is to provide a easier way to study complex stuctures such as that indicated in figure []. The strategy is borrowed from the theory of scattering in quantum mechanics, an asympotitic-in ad an asymptotic-out state are introduces corresponding to an incident wave packet at $t = -\infty$ and an outgoing wavepacket at $t = +\infty$. The relation between these two state consitutes a solution of the scattering problem itself. Let's consider a structure in figure [], the first assumption is that the incoming energy can reach the interaction region, where the non linear effects arise, only through the channels. The coordinates of the channels are labelled as $\r_n = (x_n,y_n,z_n)$ where $n$ identifies the channel and the $z_n$-axis point toward the interaction region and the origin $z_n = 0$ is near the center of the interaction region. The starting point is the introduction of the mode field $\mathbf{D}_{n,k}(\r)$ for every channels, hence the total field in the set of channels is:
+\[\mathbf{D}(\r,t) = \sum_n\int_{-\infty}^{+\infty}dk \gamma_{n,k} e^{-i\omega_{n,k}t}\mathbf{D}_{n,k}(\r)  + \text{c.c}\]
+Now we look for solutions of the Maxwell's equations for the structure that have frequency $\omega_{n,k}$ and have the mode field of the form
+\[\mathbf{D}^{asy-in}_{n,k} =\mathbf{D}_{n,k}(\r_n) + \mathbf{D}^{out}_{n,k}\]
+where far from the interaction region $\mathbf{D}^{out}_{n,k}$ represent a outgoing wave in each channel, that is
+\[\mathbf{D}^{asy-in}_{n,k} \simeq \mathbf{D}_{n,k}(\r_n) + \sum_{n'}\int_{0}^{+\infty}dk' T^{out}_{n,n'}(k,k')\mathbf{D}_{n',-k'}(r_{n'})\]
+far from the interaction region the exact solution of Maxwell's equations correspond to a wave incoming in channel $n$ and in general outgoing waves in every channel.
+
+
+
+
+\section{Backward Heisenberg picture approch}
+
+
+
+
+
+
 \section{}
 The non linear Hamiltonian is
 \[H_{NL} = -\frac{1}{3\varepsilon_0}\int\Gamma^{ijkl}_3(\r)D^iD^jD^kD^l\,d\r\]
