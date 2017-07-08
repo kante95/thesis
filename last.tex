@@ -119,3 +119,33 @@ which can be written in a more compact form as
 where $K = \frac{8\pi^2|\alpha|^4}{\hbar^2}$ and $J_{bb}$ the remaning factors. To work out $J_{bb}$ we need to choose the frequencies pump distribution $\phi_{P}(\omega)$, having in mind a continuos wave we can take as waveform a pulse of width $\Delta t$ that in frequencies has a sinc shape, then it's possible to take the limit $\Delta t \to +\infty$ and get the continuos wave.\\(ultimi conticini che devo scrivere)\\
 In conclusion we obtain
 \[|\beta_{bb}|^2 = \frac{(L\gamma)^2\hbar^2\omega_{P}^4 |\alpha|^4}{2V_g(\omega_P)^4}\int |I(\omega_1,\omega_2)|^2d\omega_1 d\omega_2\]
+In figure \ref{bounchstates} are shown the probabilities $|\beta_{bb}|^2$ and $|\beta_{cc}|^2$. These probabilities are not negligible on the diagonal $\phi_1 +\phi_2 = 2\pi$, this is something we studied in section \ref{coupled}, only with this condition the two resonators are indistinguishable which is a necessary condition for the system to work. In the diagonal of $\ket{bb}$ state we encounter a maxima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$, while the minina is when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$, with $m$ an integer. For the state $\ket{cc}$ the maximas and minimal are approximately in the same condition of the state $\ket{bb}$, just slight more asymmetric. Figure \ref{antibounchstate} shows the probability $|\beta_{bc}|^2$, again this probability is non negligible only on the diagonal, for the same reason. But more interesting is that now, along the diagonal, the maxima are when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$ and the minima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$. Therefore a minima in the probability of $\ket{bb}$ or $\ket{cc}$ is a maxima for $\ket{bc}$ and vice versa. This fact can be exploited to manipulate the output state of the photons simply by acting on $\phi_1$ and $\phi_2$. Indeed the state of the generated photons can be written as
+\[\ket{\psi_{gen}} = \begin{cases}
+\beta_{bc}(\phi_1,\phi_2)\ket{bc} &\qquad  \phi_1 =  \frac{\pi}{4} + m\frac{\pi}{2} \quad \phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2} \\
+\beta_{bb}(\phi_1,\phi_2)\ket{bb} +\beta_{cc}(\phi_1,\phi_2)\ket{cc} &\qquad \phi_1 = m\frac{\pi}{2} \quad \phi_2 = 2\pi - m\frac{\pi}{2} \\
+\end{cases}\]
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width = \textwidth]{img/Bunching_B}
+\caption{}
+\end{subfigure}\,
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width = \textwidth]{img/Bunching_C}
+\caption{}
+\end{subfigure}
+\caption{Simulated probabilities (a) $|\beta_{bb}|^2$ and (b) $|\beta_{cc}|^2$ for the state $\ket{bb}$ and $\ket{cc}$ as a function of phases $\phi_1$ and $\phi_2$, not yet normalized. Credits to: Massimo Borghi}\label{bounchstates}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width = .8\textwidth]{img/Antibunching_BC}
+\caption{Simulated probability $|\beta_{bc}|^2$ for the state $\ket{bc}$ as a function of phases $\phi_1$ and $\phi_2$, not yet normalized. Credits to: Massimo Borghi}\label{antibounchstate}
+\end{figure}
+
+\section{Conclusion and further developments}
+The calculation can go on, it is possibile to derive the power of the generated photons and also the rate. But the next important step is the experimental verification which is being performed by the nanoscience group of the University of Trento.\\
+In this conclusion i want to dwell on the entanglement, which in this work is almost not present. The generated photon pairs are energy and time entangled, the fact that the energy is entangled can be seen from equation \eqref{conservationenergy} which express the conservation of energy of the generated photon. The sum of the frequencies of the generated photons is fixed, so if a photon have a determined frequency, the frequency of the other one is determined. The frequency is linked to energy by the Planck's constant $E = \hbar \omega$, so speaking about photons frequency is equal to speak about photon energy. The time entanglement is trickier to see, for this it is necessary to perform coincidence measurements. From the photodetection it can be seen that there is zero delay between the photons arrival, this means that the photons are emitted at the same time.\\
+Lastly I want to thank Massimo Borghi for the great disponibility that he had for answering all my doubts and for all his help that I received for this thesis.
