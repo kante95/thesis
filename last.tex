@@ -1,24 +1,54 @@
 \chapter{Photons generation in coupled resonators}
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width = \textwidth]{img/system}
+\includegraphics[width = .8\textwidth]{img/system}
 \caption{Coupled resonators, Spontaneous Four wave mixing happens only inside the rings, there are three channels labelled as A,B and C}
 \label{couplesstructure}
 \end{figure}
 
-In this last chapter we study the generation of entangled photons via Spontaneous Four Wave Mixing in the structure of figure \ref{couplesstructure}. The work starts by writing the non linear Hamiltonian in terms of the asymptotic states developed in section \ref{section:asymptotic}, then we solve the dynamics of the photons state using the backward Heisenberg approch developed in section \ref{heinsemberg} and finally we study the results.\\
-\section{Output state}
-We take as input state a coherent state in channel A, so we can write it as $\ket{\psi_{in}} = e^{\alpha A_p^\dagger - \text{H.c}}\ket{vac}$ where $A_p^\dagger = \int dk \phi_P(k) a_k^\dagger$. The non linear Hamiltonian is []
+In this last chapter we study the generation of entangled photons via Spontaneous Four Wave Mixing in the structure of figure \ref{couplesstructure}. As can be seen from the figure, the structure is composed by two ADF in series, the channel are labelled with the lettera $A$, $B$, $C$ and $D$, in this work we assume that the input is in the channel $A$ and the output can be in either in $B$ or in $C$. The work starts by writing the non linear Hamiltonian in terms of the asymptotic states developed in section \ref{section:asymptotic}, then we solve the dynamics of the photons state using the backward Heisenberg approch developed in section \ref{heinsemberg} and finally we study the results.
+\section{Asymptotic fields}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.5\textwidth}
+\centering
+\includegraphics[width = \textwidth]{img/Asyina}
+\caption{Asymptotic in field for channel $A$}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width = \textwidth]{img/Asyoutb}
+\caption{Asymptotic out field for channel $B$}
+\end{subfigure}
+\caption{Asymptotic fields for the coupled resonators, the ring on the left is identified as 1, while the ring on the right as 2}\label{asyfields}
+\end{figure}
+We take as input state a coherent state in channel A, so we can write it as $\ket{\psi_{in}} = e^{\alpha A_p^\dagger - \text{H.c}}\ket{vac}$ where $A_p^\dagger = \int dk \phi_P(k) a_k^\dagger$. The non linear Hamiltonian is \cite{Sipe2004}
 \begin{equation}\label{nonlinearhamiltonian}H_{NL} = -\frac{1}{3\varepsilon_0}\int\Gamma^{ijkl}_3(\r)D^iD^jD^kD^l\,d\r\end{equation}
-where the summation over repeated indexes is implicit. A natural choice is to write the displacement operator associated with channel $A$ in terms of the asymptotic-in fields, and the operator for channel $B$ and $C$ in terms of the asymptotic-out fields. So we can write the displacement operator as:
-\begin{equation}\mathbf{D}(\r) = \int_0^{+\infty}dk\sqrt{\frac{\hbar\omega_k}{2}}\left[a_{k}\mathbf{D}^{asy-in}_{a,k}(\r)+b_{b,k}\mathbf{D}^{asy-out}_{b,k}(\r)+b_{c,k}\mathbf{D}^{asy-out}_{c,k}(\r)\right] +\text{H.c.}\end{equation}
-where $a_k$ is the annihilation operator associated with channel A, $b_{b,k}$ is for channel B and $b_{c,k}$ refers to channel C. Putting this inside expression \eqref{nonlinearhamiltonian} and keeping only the Spontaneous Four Wave Mixing terms we arrive at:
+where the summation over repeated indexes is implicit. Since the asymptotic states are a complete basis we can expand $D$ either on the asympotic-out states, or on the asymptotic-in, we can chose to expand two field of \eqref{nonlinearhamiltonian} in terms of the asymptotic-in and the other two in terms of the asympotic-in.
+Keeping only the Spontaneous Four Wave Mixing terms we arrive at:
 \begin{multline}H_{NL} = -\int dk_1dk_2dk_3dk_4S_{bb}(k_1,k_2,k_3,k_4)a_{k_1}a_{k_2}b_{b,k_3}^\dagger b_{b,k_4}^\dagger \\-2\int dk_1dk_2dk_3dk_4S_{bc}(k_1,k_2,k_3,k_4)a_{k_1}a_{k_2}b_{b,k_3}^\dagger b_{c,k_4}^\dagger\\ -\int dk_1dk_2dk_3dk_4S_{cc}(k_1,k_2,k_3,k_4)a_{k_1}a_{k_2}b_{c,k_3}^\dagger b_{c,k_4}^\dagger +\text{H.c.}\end{multline}
-where we defined the following quantity
+where where $a_k$ is the annihilation operator associated with channel A, $b_{b,k}$ is for channel B and $b_{c,k}$ refers to channel C and we defined the following quantity
 \begin{multline}\label{S}
 S_{xy}(k_1,k_2,k_3,k_4) = \frac{3}{2\varepsilon_0}\sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\cdot \\ \int d\r \Gamma^{ijkl}_3D^{i,asy-in}_{a,k_1}(\r)D^{j,asy-in}_{a,k_2}(\r)\left[D^{k,asy-out}_{x,k_3}(\r)\right]^*\left[D^{l,asy-out}_{y,k_4}(\r)\right]^*
 \end{multline}
-with this expression in hands we can switch to the Heisenberg picture e we can define
+we derive now the explicit form of $S_{bb}$ and in analogy also for $S_{bc}$ and $S_{cc}$. In section \ref{section:asymptotic} we stated that the asympotic-in field associated with channel $A$ corresponds to a wave incoming in channel $A$ and outgoing waves in every channel, and similarly asymptotic-out field of channel $B$ consist of an outgoing wave in channel $B$ and incoming waves in the other channels. These asympotitic fields are depicted in figure \ref{asyfields}. The integral of $S_{bb}$ is performed in general over all the space, but outside waveguides and resonators the field is zero, futhermore, since the field inside the ring in enhanced with respect to the field in the waveguide, we can neglet the contribution of the field in the waveguides. Therefore the integration can be performed only over the rings. With this assumption we can write the asymptotic fields as
+\begin{equation}\mathbf{D}^{asy-in\,(rings)}_{a,k} = FE_{1a}(\omega) \mathbf{d}^1_{k_1}(\r_\perp)e^{ik_1z} + FE_{2a}(\omega) \mathbf{d}_{k_2}^2(\r_\perp)e^{ik_2z} \end{equation}
+where $z$ is the coordinate in the counterclockwise direction along the rings circunference and $\r_\perp$ are the coordinates perpendicular to $z$. $FE_{1a}$ is the field enhancement of the first ring when the input wave is in channel $A$, while obviously $FE_{2a}$ refers to the second ring. $\mathbf{d}^1_{k_1}(\r_\perp)$ is the linear mode profile. Similarly the asymptotic-out field associated with channel $B$ can be written as
+\begin{equation}\mathbf{D}^{asy-out\,(rings)}_{b,k} = FE_{1b}(\omega) \mathbf{d}^1_{k_1}(\r_\perp)e^{ik_1z} + FE_{2b}(\omega)\mathbf{d}_{k_2}^2(\r_\perp)e^{ik_2z} \end{equation}
+using the last two equations in \eqref{S} leads to a lot of terms, everyone associated with a specific physical interpretation. In particular every terms correspond to a possible path for the photons that are scattered in the channel $B$, for example, the annihilated pump photons can be both inside the first ring, or both in the second one or even one in the first ring, one in the second one. Same argument for the created photons that can be created both inside the first ring, both inside the second or one in each ring. The combination of these paths are represented by all terms in $S_{bb}$, however each of this terms are proportional to the field $\mathbf{d}^1_{k_1}(\r_{\perp})$ and $\mathbf{d}^2_{k_2}(\r_{\perp})$ that are non zero only inside the ring, therefore a term that contain a factor $\mathbf{d}^2_{k_2}(\r_{\perp})\mathbf{d}^2_{k_2}(\r_{\perp})$ is zero everywhere, because in the first ring the second factor is zero and in the second ring the first factor is zero. The only term that survive the integration are those who have all factors equal to  $\mathbf{d}^2_{k_2}(\r_{\perp})$ or $\mathbf{d}^2_{k_2}(\r_{\perp})$, that is only the path where the two pump photons are annihilated in the same ring where the signal and indler photons are created. Therefore we can write $S_{bb}$ as
+\begin{multline}S_{bb} =\frac{3}{2\varepsilon_0}\sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\Bigg( \\ \int d\r \Gamma^{ijkl}_3FE_{1a}(\omega_1)FE_{1a}(\omega_2)FE^*_{1b}(\omega_3)FE^*_{1b}(\omega_4)d^{1,i}_{k_1}(\r_{\perp})d^{1,j}_{k_2}(\r_{\perp})d^{1,k}_{k_3}(\r_{\perp})d^{1,l}_{k_4}(\r_{\perp})e^{i\Delta k z} +\\
+\int d\r \Gamma^{ijkl}_3FE_{2a}(\omega_1)FE_{2a}(\omega_2)FE^*_{2b}(\omega_3)FE^*_{2b}(\omega_4)d^{2,i}_{k_1}(\r_{\perp})d^{2,j}_{k_2}(\r_{\perp})d^{2,k}_{k_3}(\r_{\perp})d^{2,l}_{k_4}(\r_{\perp})e^{i\Delta k z}\Bigg)\end{multline}
+where $\Delta k = k_1 + k_2 -k_3 - k_4$. The integration in $z$ can be done easly
+\begin{equation}\int_0^{L} e^{i\Delta k z} dz = \frac{1}{i\Delta k}(e^{i\Delta k L} - 1) = \frac{e^{i\Delta k L/2}}{i\Delta k}(e^{i\Delta k L/2}- e^{-i\Delta k L/2}) = \frac{2}{\Delta k}e^{i\Delta k L/2} \sin\left(\Delta k \frac{L}{2}\right)\end{equation}
+which can be written as $\frac{L}{\pi}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right)$. If we define the following
+\begin{equation}\gamma_1 = \frac{3}{2\varepsilon_0}\int d\r_\perp \Gamma^{ijkl}_3d^{1,i}_{k_1}(\r_{\perp})d^{1,j}_{k_2}(\r_{\perp})d^{1,k}_{k_3}(\r_{\perp})d^{1,l}_{k_4}(\r_{\perp})\end{equation}
+and the related $\gamma_2$, the expression for $S_{bb}$ is finally:
+\begin{multline}\label{sbbfinal} S_{bb} = \frac{L}{\pi}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right) \sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\Bigg(\\ \gamma_1 FE_{1a}(\omega_1)FE_{1a}(\omega_2)FE^*_{1b}(\omega_3)FE^*_{1b}(\omega_4) +\gamma_2 FE_{2a}(\omega_1)FE_{2a}(\omega_2)FE^*_{2b}(\omega_3)FE^*_{2b}(\omega_4)\Bigg)\end{multline}
+
+
+
+
+\section{Output state}
+With this expression in hands we can switch to the Heisenberg picture e we can define
 \begin{equation}\label{potential}
 V(t) = U_L^\dagger H_{NL}U_{L}\end{equation}
 since the operator $U_L$ satisfies the unitary relation $U_L U_L^\dagger = U_L^\dagger U_L = \mathbbm{1}$ we can isert $U_L^\dagger U_L$ between every annhilation and creation operators and define the time dependent operators, for example $a_{k}(t) \equiv U_L^\dagger a_{k}U_L$. Time dependent operators satisfies the Heisenberg equation
@@ -70,38 +100,8 @@ is properly normalized. Note that for $|\beta_{xy}| \ll 1 $ the state of generat
 \begin{equation}\ket{\psi_{gen}} \simeq \ket{vac} + \beta_{bb}\ket{bb}+2\beta_{bc}\ket{bc}+ \beta_{cc}\ket{cc} \end{equation}
 where $\ket{xy} = C_{II\, xy}^\dagger\ket{vac}$ and hence $|\beta_{xy}|^2$ represent the probability of a pair production in channel $x$ and $y$. Moreover
 $|\beta_{bb}|^2 + |\beta_{bc}|^2 +|\beta_{cc}|^2$ is the probability that a pair is generated. The physical interpretation of the factor 2 before the state $\ket{bc}$ can be easly found, indeed the state $\ket{bc}$ represents the state where one photon exits from channel B e and one photon exits from channel C, since the photons are indistinguishable between them, if we exchange the photon from channel B with the photon in channel C the state does not change.
-\section{Asymptotic fields}
-\begin{figure}
-\centering
-\begin{subfigure}{0.5\textwidth}
-\centering
-\includegraphics[width = \textwidth]{img/Asyina}
-\caption{Asymptotic in field for channel $A$}
-\end{subfigure}%
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width = \textwidth]{img/Asyoutb}
-\caption{Asymptotic out field for channel $B$}
-\end{subfigure}
-\caption{Asymptotic fields for the coupled resonators, the ring on the left is identified as 1, while the ring on the right as 2}\label{asyfields}
-\end{figure}
 
-In this section we derive the explicit form of $S_{bb}$ and in analogy also for $S_{bc}$ and $S_{cc}$. Recall from equation \eqref{S}
-\begin{multline}\label{sbb} S_{bb} =\frac{3}{2\varepsilon_0}\sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\cdot \\ \int d\r \Gamma^{ijkl}_3D^{i,asy-in}_{a,k_1}(\r)D^{j,asy-in}_{a,k_2}(\r)\left[D^{k,asy-out}_{b,k_3}(\r)\right]^*\left[D^{l,asy-out}_{b,k_4}(\r)\right]^*\end{multline}
-in section \ref{section:asymptotic} we stated that the asympotic-in field associated with channel $A$ corresponds to a wave incoming in channel $A$ and outgoing waves in every channel, and similarly asymptotic-out field of channel $B$ consist of an outgoing wave in channel $B$ and incoming waves in the other channels. These asympotitic fields are depicted in figure \ref{asyfields}. The integral of $S_{bb}$ is performed in general over all the space, but outside waveguides and resonators the field is zero, futhermore, since the field inside the ring in enhanced with respect to the field in the waveguide, we can neglet the contribution of the field in the waveguides. Therefore the integration can be performed only over the rings. With this assumption we can write the asymptotic fields as
-\begin{equation}\mathbf{D}^{asy-in\,(rings)}_{a,k} = FE_{1a}(\omega) \mathbf{d}^1_{k_1}(\r_\perp)e^{ik_1z} + FE_{2a}(\omega) \mathbf{d}_{k_2}^2(\r_\perp)e^{ik_2z} \end{equation}
-where $z$ is the coordinate in the counterclockwise direction along the rings circunference and $\r_\perp$ are the coordinates perpendicular to $z$. $FE_{1a}$ is the field enhancement of the first ring when the input wave is in channel $A$, while obviously $FE_{2a}$ refers to the second ring. Similarly the asymptotic-out field associated with channel $B$ can be written as
-\begin{equation}\mathbf{D}^{asy-out\,(rings)}_{b,k} = FE_{1b}(\omega) \mathbf{d}^1_{k_1}(\r_\perp)e^{ik_1z} + FE_{2b}(\omega)\mathbf{d}_{k_2}^2(\r_\perp)e^{ik_2z} \end{equation}
-using the last two equations in \eqref{sbb} leads to a lot of terms, everyone associated with a specific physical interpretation. In particular every terms correspond to a possible path for the photons that are scattered in the channel $B$, for example, the annihilated pump photons can be both inside the first ring, or both in the second one or even one in the first ring, one in the second one. Same argument for the created photons that can be created both inside the first ring, both inside the second or one in each ring. The combination of these paths are represented by all terms in $S_{bb}$, however each of this terms are proportional to the field $\mathbf{d}^1_{k_1}(\r_{\perp})$ and $\mathbf{d}^2_{k_2}(\r_{\perp})$ that are non zero only inside the ring, therefore a term that contain a factor $\mathbf{d}^2_{k_2}(\r_{\perp})\mathbf{d}^2_{k_2}(\r_{\perp})$ is zero everywhere, because in the first ring the second factor is zero and in the second ring the first factor is zero. The only term that survive the integration are those who have all factors equal to  $\mathbf{d}^2_{k_2}(\r_{\perp})$ or $\mathbf{d}^2_{k_2}(\r_{\perp})$, that is only the path where the two pump photons are annihilated in the same ring where the signal and indler photons are created. Therefore we can write $S_{bb}$ as
-\begin{multline}S_{bb} =\frac{3}{2\varepsilon_0}\sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\Bigg( \\ \int d\r \Gamma^{ijkl}_3FE_{1a}(\omega_1)FE_{1a}(\omega_2)FE^*_{1b}(\omega_3)FE^*_{1b}(\omega_4)d^{1,i}_{k_1}(\r_{\perp})d^{1,j}_{k_2}(\r_{\perp})d^{1,k}_{k_3}(\r_{\perp})d^{1,l}_{k_4}(\r_{\perp})e^{i\Delta k z} +\\
-\int d\r \Gamma^{ijkl}_3FE_{2a}(\omega_1)FE_{2a}(\omega_2)FE^*_{2b}(\omega_3)FE^*_{2b}(\omega_4)d^{2,i}_{k_1}(\r_{\perp})d^{2,j}_{k_2}(\r_{\perp})d^{2,k}_{k_3}(\r_{\perp})d^{2,l}_{k_4}(\r_{\perp})e^{i\Delta k z}\Bigg)\end{multline}
-where $\Delta k = k_1 + k_2 -k_3 - k_4$. The integration in $z$ can be done easly
-\begin{equation}\int_0^{L} e^{i\Delta k z} dz = \frac{1}{i\Delta k}(e^{i\Delta k L} - 1) = \frac{e^{i\Delta k L/2}}{i\Delta k}(e^{i\Delta k L/2}- e^{-i\Delta k L/2}) = \frac{2}{\Delta k}e^{i\Delta k L/2} \sin\left(\Delta k \frac{L}{2}\right)\end{equation}
-which can be written as $\frac{L}{\pi}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right)$. If we define the following
-\begin{equation}\gamma_1 = \frac{3}{2\varepsilon_0}\int d\r_\perp \Gamma^{ijkl}_3d^{1,i}_{k_1}(\r_{\perp})d^{1,j}_{k_2}(\r_{\perp})d^{1,k}_{k_3}(\r_{\perp})d^{1,l}_{k_4}(\r_{\perp})\end{equation}
-and the related $\gamma_2$, the expression for $S_{bb}$ is finally:
-\begin{multline}S_{bb} = \frac{L}{\pi}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right) \sqrt{\frac{(\hbar\omega_{k_1})(\hbar\omega_{k_2})(\hbar\omega_{k_3})(\hbar\omega_{k_4})}{16}}\Bigg(\\ \gamma_1 FE_{1a}(\omega_1)FE_{1a}(\omega_2)FE^*_{1b}(\omega_3)FE^*_{1b}(\omega_4) +\gamma_2 FE_{2a}(\omega_1)FE_{2a}(\omega_2)FE^*_{2b}(\omega_3)FE^*_{2b}(\omega_4)\Bigg)\end{multline}
-
-\section{Output probability}
+\section{Output probabilities}
 Besides the final output state, which show us that is possible to generate photon pairs inside the resonators, we are more interested in the probability that the photon pairs have to exit in a specific channel. We study here the probability of the photon pairs to exit from channel B, the others probability can be found in the exact same way. We labelled this state as $\ket{bb}$ and his probability as $|\beta_{bb}|^2$, in order to find $|\beta_{bb}|^2$ we need to normalize the biphoton wavefunction
 \begin{equation}\int dk_1 dk_2 |\phi_{bb}(k_1,k_2)|^2 = 1 \end{equation}
 it's more convenient to work with frequency $\omega$ instead of $k$. If the pump wave $\phi(k)_P$ is peaked for some $k_0>0$ the integrals over $k$ are restricted from 0 to infinity. With this assumption, there is a unique correspondence between wavenumber and frequencies $k(\omega)$. It's easy to verify that on order to maintain the normalization of the biphoton wavefunction and the commutator relation between the creation and annihilation operators the substitutions that have to be made are
@@ -116,10 +116,22 @@ due to the delta's, we can integrate in $\omega_3$ and $\omega'_3$ easly. Hence 
 \frac{dk(\omega)}{d\omega}\Bigg|_{\omega_1}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega_2}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega_1+\omega_2-\omega}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega'}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega_1+\omega_2-\omega'} d\omega d\omega'  d\omega_1d\omega_2\end{multline}
 which can be written in a more compact form as
 \[|\beta_{bb}|^2 = K\int \frac{dk(\omega)}{d\omega}\Bigg|_{\omega_1}\frac{dk(\omega)}{d\omega}\Bigg|_{\omega_2} J_{bb}(\omega_1,\omega_2)d\omega_1 d\omega_2\]
-where $K = \frac{8\pi^2|\alpha|^4}{\hbar^2}$ and $J_{bb}$ the remaning factors. To work out $J_{bb}$ we need to choose the frequencies pump distribution $\phi_{P}(\omega)$, having in mind a continuos wave we can take as waveform a pulse of width $\Delta t$ that in frequencies has a sinc shape, then it's possible to take the limit $\Delta t \to +\infty$ and get the continuos wave.\\(ultimi conticini che devo scrivere)\\
-In conclusion we obtain
-\[|\beta_{bb}|^2 = \frac{(L\gamma)^2\hbar^2\omega_{P}^4 |\alpha|^4}{2V_g(\omega_P)^4}\int |I(\omega_1,\omega_2)|^2d\omega_1 d\omega_2\]
-In figure \ref{bounchstates} are shown the probabilities $|\beta_{bb}|^2$ and $|\beta_{cc}|^2$. These probabilities are not negligible on the diagonal $\phi_1 +\phi_2 = 2\pi$, this is something we studied in section \ref{coupled}, only with this condition the two resonators are indistinguishable which is a necessary condition for the system to work. In the diagonal of $\ket{bb}$ state we encounter a maxima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$, while the minina is when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$, with $m$ an integer. For the state $\ket{cc}$ the maximas and minimal are approximately in the same condition of the state $\ket{bb}$, just slight more asymmetric. Figure \ref{antibounchstate} shows the probability $|\beta_{bc}|^2$, again this probability is non negligible only on the diagonal, for the same reason. But more interesting is that now, along the diagonal, the maxima are when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$ and the minima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$. Therefore a minima in the probability of $\ket{bb}$ or $\ket{cc}$ is a maxima for $\ket{bc}$ and vice versa. This fact can be exploited to manipulate the output state of the photons simply by acting on $\phi_1$ and $\phi_2$. Indeed the state of the generated photons can be written as
+where $K = \frac{8\pi^2|\alpha|^4}{\hbar^2}$ and 
+
+\[J_{bb}(\omega_1,\omega_2) = \left|\int d\omega \phi_P(\omega)\phi_P(\omega_1 + \omega_2 - \omega))S_{bb}(\omega_1,\omega_2,\omega_1+\omega_2-\omega,\omega)\sqrt{ \frac{dk(\omega)}{d\omega}}\Bigg|_{\omega}\sqrt{\frac{dk(\omega)}{d\omega}}\Bigg|_{\omega_1+\omega_2-\omega} \right|^2\]
+using \eqref{sbbfinal} in this equation and the fact that in a medium the dispersion relation is $dk/\omega = 1/v_g(\omega)$ where $v_g$ is the group velocity, the expression for $J_{bb}$ can be written as
+\begin{multline}J_{bb}(\omega_1,\omega_2) = \Bigg|\frac{L}{\pi}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right) \sqrt{\frac{\hbar^4\omega_P}{16}}\gamma_{NL}\int d\omega \frac{1}{\sqrt{v_g(\omega)v_g(\omega_1+\omega_2 - \omega)}}\phi_P(\omega)\phi_P(\omega_1 + \omega_2 - \omega)\\ \Big( FE_{1a}(\omega)FE_{1a}(\omega_1+\omega_2-\omega)FE^*_{1b}(\omega_1)FE^*_{1b}(\omega_2) + FE_{2a}(\omega)FE_{2a}(\omega_1 + \omega_2-\omega)FE^*_{2b}(\omega_1)FE^*_{2b}(\omega_2)\Big)\Bigg|^2 \end{multline}
+To work out $J_{bb}$ we need to choose the frequencies pump distribution $\phi_{P}(\omega)$, having in mind a continuos wave we can take as waveform a pulse of width $\Delta t$ that in frequencies has a sinc shape, then it's possible to take the limit $\Delta t \to +\infty$ and get the continuos wave
+\[\phi_P(\omega) = \text{sinc}\left[(\omega-\omega_p) \frac{\Delta t}{2\pi} \right]\sqrt{\frac{\Delta t}{2\pi}}\]
+since the linewidth is $(\omega - \omega_P)= \frac{\pi}{\Delta t}$, for $\Delta t \to +\infty$ we can set $FE_{1a}(\omega) \simeq FE_{1a}(\omega_P)$ with a good approximation. Hence $J_{bb}$ becomes
+\begin{multline}J_{bb}(\omega_1,\omega_2) = \Bigg|\frac{L\gamma_{NL}\sqrt{\hbar^4\omega_P^4}}{4\pi v_g(\omega_P)}e^{i\Delta k L/2} \text{sinc}\left(\Delta k \frac{L}{2\pi}\right)\\ \Big( FE_{1a}(\omega)FE_{1a}(\omega_P)FE^*_{1b}(\omega_1)FE^*_{1b}(\omega_2) + FE_{2a}(\omega)FE_{2a}(\omega_P)FE^*_{2b}(\omega_1)FE^*_{2b}(\omega_2)\Big) \\ \int d\omega  \frac{\Delta t}{2\pi}\text{sinc}\left[(\omega-\omega_p) \frac{\Delta t}{2\pi} \right]\text{sinc}\left[(\omega_1+\omega_2-\omega-\omega_p) \frac{\Delta t}{2\pi} \right]\Bigg|^2\end{multline}
+which canbe written in a more compact form defining $I(\omega_1,\omega_2)$ as
+\begin{multline}J_{bb}(\omega_1,\omega_2) = \Bigg|\frac{L\gamma_{NL}\sqrt{\hbar^4\omega_P^4}}{4\pi v_g(\omega_P)}I(\omega_1,\omega_2) \int d\omega  \frac{\Delta t}{2\pi}\text{sinc}\left[(\omega-\omega_p) \frac{\Delta t}{2\pi} \right]\text{sinc}\left[(\omega_1+\omega_2-\omega-\omega_p) \frac{\Delta t}{2\pi} \right]\Bigg|^2\end{multline}
+the last integral can be approximated, the second sinc function is non zero only when $\omega_1+\omega_2 - \omega - \omega_P \simeq 0 \implies  \omega_1+\omega_2 = \omega + \omega_P \simeq 2\omega_P$, with this approximation the integration can be done easier and the result is
+\[J_{bb}(\omega_1,\omega_2) = \Bigg|\frac{L\gamma_{NL}\sqrt{\hbar^4\omega_P^4}}{4\pi v_g(\omega_P)}I(\omega_1,\omega_2)\Bigg|^2\]
+hence in conclusion for the probability we obtain
+\[|\beta_{bb}|^2 = \frac{(L\gamma_{NL})^2\hbar^2\omega_{P}^4 |\alpha|^4}{2v_g(\omega_P)^4}\int |I(\omega_1,\omega_2)|^2d\omega_1 d\omega_2\]
+In figure \ref{bounchstates} are shown the (not normalized) probabilities $|\beta_{bb}|^2$ and $|\beta_{cc}|^2$. These probabilities are not negligible on the diagonal $\phi_1 +\phi_2 = 2\pi$, this is something we studied in section \ref{coupled}, only with this condition the two resonators are indistinguishable which is a necessary condition for the system to work. In the diagonal of $\ket{bb}$ state we encounter a maxima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$, while the minina is when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$, with $m$ an integer. For the state $\ket{cc}$ the maximas and minimal are approximately in the same condition of the state $\ket{bb}$, just slight more asymmetric. Figure \ref{antibounchstate} shows the probability $|\beta_{bc}|^2$, again this probability is non negligible only on the diagonal, for the same reason. But more interesting is that now, along the diagonal, the maxima are when $\phi_1 = \frac{\pi}{4} + m\frac{\pi}{2}$ and $\phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2}$ and the minima when $\phi_1 = m\frac{\pi}{2}$ and $\phi_2 = 2\pi - m\frac{\pi}{2}$. Therefore a minima in the probability of $\ket{bb}$ or $\ket{cc}$ is a maxima for $\ket{bc}$ and vice versa. This fact can be exploited to manipulate the output state of the photons simply by acting on $\phi_1$ and $\phi_2$. Indeed the state of the generated photons can be written as
 \[\ket{\psi_{gen}} = \begin{cases}
 \beta_{bc}(\phi_1,\phi_2)\ket{bc} &\qquad  \phi_1 =  \frac{\pi}{4} + m\frac{\pi}{2} \quad \phi_2 = 2\pi - \frac{\pi}{4} - m\frac{\pi}{2} \\
 \beta_{bb}(\phi_1,\phi_2)\ket{bb} +\beta_{cc}(\phi_1,\phi_2)\ket{cc} &\qquad \phi_1 = m\frac{\pi}{2} \quad \phi_2 = 2\pi - m\frac{\pi}{2} \\
