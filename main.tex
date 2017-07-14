@@ -53,55 +53,48 @@ bottom=3cm, bindingoffset=1cm,headheight=110pt]{geometry}
 
 \chapter{Physical theory and mathematical model}
 \section{Non linear optics}
-An electric field inside a medium induce a dipole moment inside the media, the polarization $P$ is defined as the dipole moment per unit volume \cite{book:saleh}. The relation between the polarization and the electric field $E$ is in first approximation linear
+An electric field inside a medium induces a dipole moment inside the media; the polarization $P$ is defined as the dipole moment per unit volume \cite{book:saleh}. The relation between the polarization and the electric field $E$ is in first approximation linear:
 \begin{equation}\label{linearP} \mathbf{P} = \varepsilon_0 \chi \mathbf{E}
 \end{equation}
 where $\varepsilon_0$ is the permittivity of free space and $\chi$ is the eletric susceptibility of the medium which is in general a second rank tensor in order to account for medium anisotropy. If the intensity of the electric field is strong enough, the relation between the field and the polarization is no longer linear and we need to expand the equation \eqref{linearP} in series, in general we find
 \begin{equation}\label{nonlinearpolarization}P_i  = \varepsilon_0(\sum_j \chi_{ij}^{(1)} E_j + \sum_{j,k}x_{ijk}^{(2)}E_jE_k + \sum_{j,k,l}\chi_{ijkl}^{(3)}E_jE_kE_l + \dots )\end{equation}
-where $\chi^{(i)}$ are tensor of rank $i+1$ and represent the $i$-order susceptibily. This leads to an entire new class of phenomena that have a great interest in photonics, in fact as we'll se later, an electric field with frequency $\omega_1$ can excite a new eletric field with different frequency $\omega_2$. Silicon is a centrosymmetric crystal, this means that if the eletric field change sign, the resulting polarization must change sign equally, hence the even order of susceptibily must vanish, so the first non linear effects of silicon are those of the third order and it's referred as Kerr nonlinearity. For silicon $\chi^{(3)}$ is in the order of $10^{-19} \frac{m^2}{V^2}$ for the real part and $10^{-5} \frac{m^2}{V^2}$ for the imaginary part responsible of the absorption. \\
-In order to study non linear phenomena in silicon we take an electric field made up by three waves which propagates along the $z$ direction
+where the $\chi^{(i)}$ are tensors of rank $i+1$ and represent the $i$-order susceptibily. This leads to an entire new class of phenomena that are of great interest in photonics: we will see later, an electric field with frequency $\omega_1$ can excite a new eletric field with different frequency $\omega_2$. Silicon is a centrosymmetric crystal; this means that if the eletric field changes sign, the resulting polarization must change sign equally, hence the even order of susceptibily must vanish, so the first non linear effects of silicon are those of the third order and are referred to as Kerr nonlinearity. For silicon $\chi^{(3)}$ is in the order of $10^{-19} \frac{m^2}{V^2}$ for the real part and $10^{-5} \frac{m^2}{V^2}$ for the imaginary part responsible for absorption. \\
+In order to study non linear phenomena in silicon we take an electric field made up by three waves propagating along the $z$ direction
 \begin{equation}E(z,t) = \sum_{j=1}^{3} \frac{1}{2}(A_j(z)e^{i(\omega_jt -k_jz)}+\text{c.c})\end{equation}
-where $k_i = \frac{\omega_i}{c}n$. From the Maxwell equation and the equation \eqref{nonlinearpolarization} is possible to derive the Helmoltz equation
+where $k_i = \frac{\omega_i}{c}n$. From the Maxwell equations and equation \eqref{nonlinearpolarization} it is possible to derive the Helmholtz equation
 \begin{equation}\label{wavesource}\left(\nabla^2 - \frac{n^2}{c^2}\frac{\partial^2}{\partial t^2}\right)E = \mu_0\frac{\partial^2 P_{NL}}{\partial t^2}\end{equation}
-in which there's now a source term on the right hand side of the equation given by the non linear polarization $P_{NL} = \varepsilon_0\chi^{(3)}E^3$. Using the field described above it can be written as
+in which there is now a source term on the right hand side of the equation given by the non linear polarization $P_{NL} = \varepsilon_0\chi^{(3)}E^3$. Using the field described above we can write
 \begin{equation}P_{NL} = \varepsilon_0\chi^{(3)} \sum_{l,j,m=\pm1,\pm2,\pm3}\left(\frac{1}{8}A_lA_jA_l e^{i(\omega_l+\omega_j+\omega_m)t}e^{-i(k_l+k_j+k_m)z}\right)\end{equation}
-where it's intended that $\omega_{-j} = -\omega_j$ and $A_{-j} = A^*_j$
-from this equation we can see that new frequencies arise, hence the field in equation \eqref{wavesource} is a wave that oscillate with these new frequencies. Different frequencies correspond to different effects, here we focus on Four Wave Mixing terms, for futher reference on other terms see \cite{Leuthold2010}. Four Wave Mixing process arise from the frequency $\omega_n = \omega_l - \omega_j +\omega_m$ that represent also the energy conservation. Futhermore in case of four wave mixing the excited wave satisfy also the satisfies the phase-match conndition $k_n = k_l - k_j + k_m$ as can be seen from the same equation of the energy conserving relation. It's worth to note that every non linear effects have their own phase matching condition, this can be exploited in order to decide which effect we want to study in our device. In fact the efficiency of a process is associated with the phase match parameter \cite{phdthesis:borghi} $\Delta k = k_l - k_j + k_m -k_n$, the maximum efficiency is at $\Delta k = 0$, hence devices can be build in such way that they have the maximum efficiency for one effect and low efficiency for the others. Futhermore if the medium is non dispersive the equation $\Delta k = 0$ is equivalent to the energy conservation relation, in fact $k = \frac{n(\omega)}{c}\omega_k$.\\
+where $\omega_{-j} = -\omega_j$ and $A_{-j} = A^*_j$. From this equation we can see that new frequencies arise, hence the field in equation \eqref{wavesource} is a wave that oscillates with these new frequencies, with different frequencies corresponding to different effects. Here we focus on Four Wave Mixing terms; for further reference on other terms see \cite{Leuthold2010}. Four Wave Mixing processes arise from the frequency $\omega_n = \omega_l - \omega_j +\omega_m$ that also represent also the energy conservation. Furthermore, in the case of Four Wave Mixing, the excited wave also satisfies the phase-match condition $k_n = k_l - k_j + k_m$ as can be seen from the same equation of the energy conserving relation. It is worth to note that every non linear effects have their own phase matching condition; this can be exploited in order to decide which effect we want to study in our device. In fact the efficiency of a process is associated with the phase match parameter \cite{phdthesis:borghi} $\Delta k = k_l - k_j + k_m -k_n$; the maximum efficiency is at $\Delta k = 0$, hence devices can be built in such a way that they have the maximum efficiency for one effect and low efficiency for the others. Furthermore, if the medium is non dispersive, the equation $\Delta k = 0$ is equivalent to the energy conservation relation, since $k = \frac{n(\omega)}{c}\omega_k$.\\
 \begin{figure}
 \centering
 \includegraphics[width = .4\textwidth]{img/FWMphotons}
-\caption{Four wave mixing seen as annihilation of two photons and creation of other two photon}
+\caption{Four wave mixing seen as annihilation of two photons and creation of other two photons}
 \end{figure}
-This classical description however is not suitable for describing photon generation, indeed we need to develop the quantum theory for this phenomena. Four wave mixing in the quantum mechanics point of view can be seen as the annihilation of two photon wich have frequency $\omega_n$ and $\omega_j$ and the simultaneous creation of two photon which have the frequency $\omega_l$ and $\omega_k$. In this scenario the energy conservation is seen as the conservation of photons energy and the phase match condition is the photons momentum conservation.\\
-The process used for the generation of photon pairs has $\omega_j = \omega_n \equiv \omega_p$ and it's called non degenerate four wave mixing. The wave with $\omega_p$ has named as pump wave and $\omega_l\equiv \omega_s$ and $\omega_m \equiv \omega_i$ are respectivly the sigNal and idler with the convention that $\omega_s > \omega_i$. In this case the energy conservation can be written as
+This classical description, however, is not suitable for describing photon generation; indeed we need to develop the quantum theory for this phenomenon. Four Wave Mixing in the quantum mechanical point of view, can be seen as the annihilation of two photons with frequencies $\omega_n$ and $\omega_j$ and the simultaneous creation of two photons with frequencies $\omega_l$ and $\omega_k$. In this scenario the conservation of energy is seen as the conservation of photon energy and the phase match condition is the photon momentum conservation.\\
+The process used for the generation of photon pairs has $\omega_j = \omega_n \equiv \omega_p$ and it is called non degenerate four wave mixing. The wave with $\omega_p$ is called the pump wave and $\omega_l\equiv \omega_s$ and $\omega_m \equiv \omega_i$ are respectivly the signal and idler with the convention that $\omega_s > \omega_i$. In this case energy conservation can be written as
 \begin{equation}\label{conservationenergy}2\omega_p = \omega_s + \omega_i\end{equation}
-In the classical derivation the signal stimulate the process and it is necessary for the generation of the idler \cite{phdthesis:borghi}. The classical process, which undergoes this restriction, is called Stimulated Four Wave Mixing. In the quantum description the process become spontaneous, i.e. only the pump field is required for generating the signal and the idler, this process is referred as Spontaneous Four Wave Mixing. The quantum explanation is that the vacuum fluctuation of the electric field provides the necessary stimulus for the process, indeed, in quantum electrodynamics \cite{book:cohen}, the variance of the electric field operator evaluated on the vacuum is finite, even if the mean value of the field is zero.\\
-The theory of non liner optics has been discussed here using as principal field the electric field $E$, however for this work is more convenient to take the displacement field $\mathbf{D} = \varepsilon_0\mathbf{E} +\mathbf{P} $ as our fundamental field, this is because in a medium $\mathbf{D}$ is divergenceless. The polarization can be expressed in function of $\mathbf{D}$ as
+In the classical derivation the signal stimulates the process and is necessary for the generation of the idler \cite{phdthesis:borghi}. The classical process, which obeys this restriction, is called Stimulated Four Wave Mixing. In the quantum description the process becomes spontaneous, i.e. only the pump field is required for generating the signal and the idler; this process is referred as Spontaneous Four Wave Mixing. The quantum explanation is that the vacuum fluctuation of the electric field provides the necessary stimulus for the process. Indeed, in quantum electrodynamics \cite{book:cohen}, the variance of the electric field operator evaluated on the vacuum is finite, even if the mean value of the field is zero.\\
+The theory of non linear optics has been discussed here using as the principal field the electric field $E$; however, for this work it is more convenient to take the displacement field $\mathbf{D} = \varepsilon_0\mathbf{E} +\mathbf{P} $ as our fundamental field, this is because in a medium $\mathbf{D}$ is divergenceless. The polarization can be expressed as a function of $\mathbf{D}$ as
 \begin{equation}P^i = \Gamma^{ij}_1D^j +\Gamma_2^{ijk}D^jD^k + \Gamma_3^{ijkl}D^jD^kD^l + \dots\end{equation}
-where the summation over repeated indexes is implicit. Comparing this equation with \eqref{nonlinearpolarization} it's possible to find the relation between the $\Gamma$'s and the $\chi$'s, the relation we are more interested in is
+where the summation over repeated indexes is implied. Comparing this equation with \eqref{nonlinearpolarization} it is possible to find the relation between the $\Gamma$'s and the $\chi$'s, the relation we are more interested in is
 \begin{equation}\Gamma_3^{ijkl} = \frac{\chi_{ijk}^{(3)}}{\varepsilon_0 n^4}\end{equation}
 in order to include material dispersion, given the frequency involved, the natural choice is to take
 \begin{equation}\Gamma_3^{ijkl} = \frac{\chi_{ijk}^{(3)}}{\varepsilon_0 n^2(\omega_1)n^2(\omega_2)n^2(\omega_3)n^2(\omega_4)}\end{equation}
 
 
-
-
 %H_{NL} = -\frac{1}{3\varepsilon_0}\int\Gamma^{ijkl}_3(\r)D^iD^jD^kD^l\,d\r
 
 \section{Quantum optics}
-Since Spontaneous Four Wave Mixing is a quantum phenomenon, a quantum description of light is needed. Standard arguments \cite{book:cohen} leads to the quantization of the electric field, and to the introduction to a light particle: the photon. From a mathematical point of view, the quantization of the electric field is identical to an harmonic oscillator, thus a state with $n$ photons can be writtten with the Dirac's notation as $\Ket{n}$. The displacement field became an operator
+Since Spontaneous Four Wave Mixing is a quantum phenomenon, a quantum description of light is needed. Standard arguments \cite{book:cohen} leads to the quantization of the electric field, and to the introduction to a light particle: the photon. From a mathematical point of view, the quantization of the electric field is identical to n harmonic oscillator, thus a state with $n$ photons can be writtten with Dirac's notation as $\Ket{n}$. The displacement field becomes an operator
 \begin{equation}
 \mathbf{D}(\r) = \sqrt{\frac{\hbar \omega_k}{2}}a_k \mathbf{D}_k(\r) + \sqrt{\frac{\hbar \omega_k}{2}}a_k^\dagger \mathbf{D}^*_k(\r)
 \end{equation}
-where $a_k$ is the annihilation operator of a single photon with wavevector $k$, while its adjoint $a_k^\dagger$ is a creation operator and  $\mathbf{D}^*_k(\r)$ is the normalized classical field with wavevector $k$. In this framework the linear Hamiltonian can be written as
+where $a_k$ is the annihilation operator of a single photon with wavevector $k$, while its adjoint $a_k^\dagger$ is a creation operator and  $\mathbf{D}_k(\r)$ is the normalized classical field with wavevector $k$. In this framework the linear Hamiltonian can be written as
 \begin{equation}H_L = \int dk \hbar \omega_k a_k^\dagger a_k  \end{equation}
-negletting the zero point energy. 
+neglecting the zero point energy. 
 
-
-
-
-
-The aim now is to find a correct quantum description for the coherent state of a laser. The photon state number $\Ket{n}$ cannot have the correct classical limit because the expectation value of the electric field on this state vanish no matter how large is the value of $n$. A common way to introduce a coherent state is to find the eigenstates of the annihilation operator:
+The aim now is to find a correct quantum description for the coherent state of a laser. The photon state number $\Ket{n}$ cannot have the correct classical limit because the expectation value of the electric field on this state vanishes no matter how large is the value of $n$. A common way to introduce a coherent state is to find the eigenstates of the annihilation operator:
 \begin{equation}\label{eigenvalue}
 a_k\ket{\alpha} = \alpha \ket{\alpha}
 \end{equation}
@@ -109,30 +102,30 @@ where $\alpha$ can be a complex number. We can express this state as a sum of th
 \begin{equation}\ket{\alpha} = \sum_{n=0}^{+\infty} C_n \ket{n}\end{equation}
 equation \eqref{eigenvalue} becomes
 \begin{equation}a_k\sum_{n=0}^{+\infty} C_n \ket{n} = \sum_{n=0}^{+\infty} C_n\sqrt{n}\ket{n-1} =\alpha\sum_{n=0}^{+\infty} C_n \ket{n}\end{equation}
-equation coefficients of $\ket{n}$ on both sides leads to
+the coefficients of $\ket{n}$ leads to
 \begin{equation}C_n = \frac{\alpha}{\sqrt{n}}C_{n-1} = \frac{\alpha^2}{\sqrt{n(n-1)}} = \dots = \frac{\alpha^n}{\sqrt{n!}}C_0\end{equation}
-using the fact that the state must be normalized $\Braket{\alpha|\alpha} = 1$ is possible to determine $C_0$ and in conclusion the coherent state can be written as
+using the fact that the state must be normalized $\Braket{\alpha|\alpha} = 1$ it is possible to determine $C_0$ and, in conclusion, the coherent state can be written as
 \begin{equation}\label{coherentstate}
 \ket{\alpha} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}
 \end{equation}
 to find a physical meaning of $\alpha$ we can evaluate the expectation value of the photon number operator $\hat{n} = a_k^\dagger a_k$:
 \begin{equation}\braket{\alpha|\hat{n}|\alpha} = |\alpha|^2 \end{equation}
-hence $|\alpha|^2$ is the avarege photon number of the field. The coherent states $\ket{\alpha}$ are used to represent a classical state, this is due to several reasons which are
+hence $|\alpha|^2$ is the average photon number of the field. The coherent states $\ket{\alpha}$ are used to represent a classical state, for several reasons:
 \begin{enumerate}[(i)]
 \item the expectation value of the electric field is a classical field
-\item the fluctuations of the electric field is the same as for the vacuum
-\item the states become well localized in phase with increasing of the photon number
+\item the fluctuations of the electric field are the same as for the vacuum
+\item the states become well localized in phase with increasing photon number
 \end{enumerate}
 an equivalent way to obtain a coherent state $\ket{\alpha}$ is to use the displacement operator defined as 
 \begin{equation}\label{def:displacement}\hat{D}(\alpha) = e^{\alpha a_k^\dagger -\text{H.c}}\end{equation}
-this operator applied on the vacumm generate exaclty $\ket{\alpha}$, in fact, using the Baker-Campbell-Hausdorff formula, the exponential can be written as:
+this operator applied on the vacuum generates exactly $\ket{\alpha}$: indeed, using the Baker-Campbell-Hausdorff formula, the exponential can be written as:
 \begin{equation}\hat{D}(\alpha) = e^{-\frac{1}{2}|\alpha|^2}e^{\alpha a_k^\dagger} e^{-\alpha^* a_k}\end{equation}
-when it acts on the vacuum the exponential with the annihilation operators does nothing, so the second exponential can be expanded in Taylor's series:
+when it acts on the vacuum the exponential with the annihilation operators does nothing, so the second exponential can be expanded in a Taylor series:
 \begin{equation}\hat{D}(\alpha)\ket{vac} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty}\frac{(\alpha a_k^\dagger)^n}{n!}\ket{vac} = e^{-\frac{1}{2}|\alpha|^2}\sum_{n=0}^{+\infty} \frac{\alpha^n}{\sqrt{n!}}\ket{n}  \end{equation}
-exaclty what we found in equation \eqref{coherentstate}.\\
-This treatment only describes states where all photons have the same wavevector $k$, but it is simple to generalize the displacement operator in order to generate state with photons with different wavevectors. We can write the displacement operator as
+exactly what we found in equation \eqref{coherentstate}.\\
+This treatment only describes states where all photons have the same wavevector $k$, but it is simple to generalize the displacement operator in order to generate state with photons of different wavevectors. We can write the displacement operator as
 \begin{equation}\hat{D}(\alpha) = e^{\alpha A^\dagger_P -\text{H.c}}\end{equation}
-where $A^\dagger_P = \int dk \phi_P(k) a_k^\dagger$ where $|\phi(k)|^2$ is the probability of finding a photon with wavevector $k$ and it is normalized according to $\int dk |\phi_P(k)|^2 = 1$.
+where $A^\dagger_P = \int dk \phi_P(k) a_k^\dagger$ where $|\phi(k)|^2$ is the probability of finding a photon with wavevector $k$ and $\phi_P$ is normalized according to $\int dk |\phi_P(k)|^2 = 1$.
 
 
 \section{Asymptotic field treatment}\label{section:asymptotic}
@@ -145,23 +138,23 @@ where $A^\dagger_P = \int dk \phi_P(k) a_k^\dagger$ where $|\phi(k)|^2$ is the p
 
 
 
-Most of this section is developed in \cite{Liscidini2012}, here i summarize the key point needed for the next chapter and ease the treatment to single mode field.\\ The idea behind this theory is to provide a easier way to study complex stuctures sketched in figure \ref{generalstructure}. The strategy is borrowed from the theory of scattering in quantum mechanics, an asympotitic-in ad an asymptotic-out state are introduces corresponding to an incident wave packet at $t = -\infty$ and an outgoing wavepacket at $t = +\infty$. The relation between these two state consitutes a solution of the scattering problem itself. Let's consider the general structure in figure \ref{generalstructure}, the first assumption is that the incoming energy can reach the interaction region, where the non linear effects arise, only through the channels. The coordinates of the channels are labelled as $\r_n = (x_n,y_n,z_n)$ where $n$ identifies the channel and the $z_n$-axis point toward the interaction region and the origin $z_n = 0$ is near the center of the interaction region. The starting point is the introduction of the mode field $\mathbf{D}_{n,k}(\r_n)$ for every channels, hence the total field in the set of channels is:
+Most of this section is developed in \cite{Liscidini2012}, here I summarize the key points needed for the next chapter and limit the treatment to a single mode field.\\ The idea behind this theory is to provide a easier way to study complex stuctures such as the one sketched in figure \ref{generalstructure}. The strategy is borrowed from the theory of scattering in quantum mechanics, an asympotitic-in and an asymptotic-out state are introduced corresponding to an incident wave packet at $t = -\infty$ and an outgoing wavepacket at $t = +\infty$. The relation between these two states constitutes a solution of the scattering problem itself. Let us consider the general structure in figure \ref{generalstructure}, the first assumption is that the incoming energy can reach the interaction region, where the non linear effects arise, only through the channels. The coordinates of the channels are labelled as $\r_n = (x_n,y_n,z_n)$ where $n$ identifies the channel, the $z_n$-axis points toward the interaction region and the origin $z_n = 0$ is near the center of the interaction region. The starting point is the introduction of the mode field $\mathbf{D}_{n,k}(\r_n)$ for every channel, hence the total field in the set of channels is:
 \begin{equation}\mathbf{D}(\r,t) = \sum_n\int_{-\infty}^{+\infty}dk \gamma_{n,k} e^{-i\omega_{n,k}t}\mathbf{D}_{n,k}(\r)  + \text{c.c}\end{equation}
 clearly $\mathbf{D}_{n,-k}$ is not indipendent from $\mathbf{D}_{n,k}$ and the relation can be fixed by taking
 \begin{equation}\label{ddstar}\mathbf{D}_{n,-k} = \mathbf{D}*_{n,k}\end{equation}
 
-Now we look for solutions of the Maxwell's equations for the structure that have frequency $\omega_{n,k}$ with positive $k$ and have the mode field of the form
+Now we look for solutions of Maxwell's equations for the structure that have frequency $\omega_{n,k}$ with positive $k$ and have the mode field of the form
 \begin{equation}\mathbf{D}^{asy-in}_{n,k} =\mathbf{D}_{n,k}(\r_n) + \mathbf{D}^{out}_{n,k}\end{equation}
 where far from the interaction region $\mathbf{D}^{out}_{n,k}$ represent a outgoing wave in each channel, that is
 \begin{equation}\label{asyin}\mathbf{D}^{asy-in}_{n,k} \sim \mathbf{D}_{n,k}(\r_n) + \sum_{n'}\int_{0}^{+\infty}dk' T^{out}_{n,n'}(k,k')\mathbf{D}_{n',-k'}(r_{n'})\end{equation}
-where $\mathbf{D}^{asy-in}_{n,k}$ is called asymptotic-in mode field and far from the interaction region it corresponds to a wave incoming in channel $n$ and outgoing waves in every channel. % If we construct a superposition of asymptotic-in mode fields
+where $\mathbf{D}^{asy-in}_{n,k}$ is called asymptotic-in mode field and far from the interaction region corresponds to a wave incoming in channel $n$ and outgoing waves in every channel. % If we construct a superposition of asymptotic-in mode fields
 %\begin{equation}\mathbf{D}(\r) = \sum_n \int_0^{+\infty}dk \alpha_{n,k}e^{-i\omega_{n,k}t} \mathbf{D}^{asy-in}_{n,k} + \text{c.c}\end{equation}
 %where we choose $\alpha_{n,k}$ such that for $k>0$ $ \gamma_{n,k} = \alpha_{n,k}$
-Similarly asymptotic-out mode field is introduces as full solution of Maxwell equation with positive $k$ and of the form
+Similarly asymptotic-out mode field is introduced as a full solution of Maxwell equation with positive $k$ and of the form
 \begin{equation}\mathbf{D}^{asy-out}_{n,k} =\mathbf{D}_{n,-k}(\r_n) + \mathbf{D}^{in}_{n,k}\end{equation}
 where $\mathbf{D}^{in}_{n,k}$ far from the interaction region consist of incoming waves in each channel, i.e.
 \begin{equation}\label{asyout}\mathbf{D}^{asy-out}_{n,k} \sim \mathbf{D}_{n,-k}(\r_n) + \sum_{n'}\int_{0}^{+\infty}dk' T^{in}_{n,n'}(k,k')\mathbf{D}_{n',k'}(r_{n'})\end{equation} 
-Just like in \eqref{ddstar} asymptotic-out field and asymptotic-in field are not indipendent, but comparing \eqref{asyin} and \eqref{asyout} we find
+Just like in \eqref{ddstar} asymptotic-out field and asymptotic-in field are not independent, but comparing \eqref{asyin} and \eqref{asyout} we find
 \begin{equation}\mathbf{D}^{asy-out}_{n,k}(\r) = [\mathbf{D}^{asy-in}_{n,k}(\r)]^*\end{equation}
 The final step is to quantize the electric field 
 \begin{equation}\mathbf{D}(\r) = \sum_n \int_{-\infty}^{+\infty}dk \sqrt{\frac{\hbar \omega_{n,k}}{2}}c_{n,k}\mathbf{D}_{n,k}(\r) + \text{H.c}\end{equation}
@@ -178,14 +171,14 @@ where again
 the utility of this approch is that the linear Hamiltonian can be written with the state of the whole structure, not only the state of rings and waveguides, hence the linear Hamiltonian is diagonal. The full Hamiltonian is therefore the sum of a diagonal term (the linear one) and a non diagonal term (non linear term).
 
 \section{Backward Heisenberg picture approach}\label{heinsemberg}
-Assuming the knowledge of the Hamiltonian of the system, this section is devoted on the formalism used to solve the scattering problem subject to the Hamiltonian of the form $H = H_L +H_{NL}$ where $H_L$ is the linear Hamiltonian and $H_{NL}$ is the non linear part. Instead of working in the Schr{\"o}dinger picture it is easier to work in the Heinsenberg picture. 
-We want to study what happens to a initial state $\ket{\psi(t_0)}$, $t_0\ll 0$ incident to a interaction region with nonlinearities and find the final state $\ket{\psi(t_1)}$, $t_1\gg 0$. The dynamics is given by the full Hamiltonian $H$
+Assuming the knowledge of the Hamiltonian of the system, this section is devoted on the formalism used to solve the scattering problem subject to the Hamiltonian of the form $H = H_L +H_{NL}$ where $H_L$ is the linear Hamiltonian and $H_{NL}$ is the non linear part. Instead of working in the Schr{\"o}dinger picture it is easier to work in the Heisenberg picture. 
+We want to study what happens to a initial state $\ket{\psi(t_0)}$, $t_0\ll 0$ incident on a interaction region with nonlinearities and find the final state $\ket{\psi(t_1)}$, $t_1\gg 0$. The dynamics is given by the full Hamiltonian $H$
 \begin{equation}\label{evolution}\ket{\psi(t_1)} = e^{-\frac{i}{\hbar}H (t_1-t_0)}\ket{\psi(t_0)}\end{equation}
-Let's take the assumption that the non linear interactions happens at $t=0$ and we takes $t_0 \to -\infty$ and $t_1 \to -\infty$ such that the initial and final states are far from the interaction region. We can define an asymptotic-in state $\ket{\psi_{in}}$ as the state at $t=0$ to whom $\ket{\psi(t_0)}$ would evolve if the evolution occurs only with $H_L$, that is
+Let us make the assumption that the non linear interactions happen at $t=0$ and we take $t_0 \to -\infty$ and $t_1 \to -\infty$ such that the initial and final states are far from the interaction region. We can define an asymptotic-in state $\ket{\psi_{in}}$ as the state at $t=0$ to which $\ket{\psi(t_0)}$ would evolve if the evolution occured only with $H_L$, that is
 \begin{equation}\label{statein}\ket{\psi_{in}} = e^{-\frac{i}{\hbar}H_L (0-t_0)}\ket{\psi(t_0)} = e^{\frac{i}{\hbar}H_Lt_0}\ket{\psi(t_0)}\end{equation}
-and similarly we can define the asymptotic-out state $\ket{\psi_{out}}$ as the state at $t=0$ that would evolve into $\ket{\psi(t_1)}$ if the evolution is dictated by $H_L$, that is
+and similarly we can define the asymptotic-out state $\ket{\psi_{out}}$ as the state at $t=0$ that would evolve into $\ket{\psi(t_1)}$ if the evolution were dictated by $H_L$, that is
 \begin{equation}\ket{\psi(t_1)} = e^{-\frac{i}{\hbar}H_L t_1}\ket{\psi_{out}}\end{equation}
-using equation \eqref{evolution} and \eqref{statein} inside the last equation we can find the relation between the asymptotic-in state and the asyptotic-out
+using equation \eqref{evolution} and \eqref{statein} in the last equation we can find the relation between the asymptotic-in state and the asyptotic-out state
 
 \begin{equation}
 \begin{split}
@@ -199,17 +192,17 @@ where
 \begin{equation}\label{U}
 U(t',t) = e^{\frac{i}{\hbar}H_Lt'}e^{-\frac{i}{\hbar}H(t'-t)}e^{-\frac{i}{\hbar}H_Lt}
 \end{equation}
-the advantage of this approch is that the non linear scattering problem is contained only in the transition $\ket{\psi_{in}} \to \ket{\psi_{out}}$ and it's easy to calculate the asymptotic states since they are a linear evolution of initial and final state. Hence if we start from $\ket{\psi(t_0)}$ we can easly calculate $\ket{\psi_{in}}$, then we solve the non linear problem in the transition $\ket{\psi_{in}} \to \ket{\psi_{out}}$ and finally we can easly determine the final state $\ket{\psi(t_1)}$. For this reason now we study the dynamics of $U(t_1,t_0)$, differentiating equation \eqref{U} we obtain
+the advantage of this approach is that the non-linear scattering problem is contained only in the transition $\ket{\psi_{in}} \to \ket{\psi_{out}}$ and it is easy to calculate the asymptotic states since they are a linear evolution of the initial and final states. Hence if we start from $\ket{\psi(t_0)}$ we can easly calculate $\ket{\psi_{in}}$, then we solve the non-linear problem in the transition $\ket{\psi_{in}} \to \ket{\psi_{out}}$ and finally we can easily determine the final state $\ket{\psi(t_1)}$. For this reason we will now study the dynamics of $U(t_1,t_0)$. Differentiating equation \eqref{U} we obtain
 \begin{equation}\label{dynamicU}-i\hbar \frac{\partial U(t',t)}{\partial t} = U(t',t)V(t)\end{equation}
 where $V(t)$ has been defined as
 \begin{equation}V(t) \equiv  e^{\frac{i}{\hbar}H_Lt}H_{NL}e^{-\frac{i}{\hbar}H_Lt} \equiv U_L^\dagger H_{NL} U_L\end{equation}
-let's consider an asymptotic-in state of the form 
+let us consider an asymptotic-in state of the form 
 \begin{equation}\ket{\psi_{in}} = e^O \ket{vac}\end{equation}
 where $O$ is a Schr{\"o}dinger operator. With this definition we have in mind the displacement operator defined in \eqref{def:displacement} that generates the coherent state of the laser. From equation \eqref{relation:inout} we can write
 \begin{equation}\label{outfinal}\ket{\psi_{out}} = U(t_1,t_0)e^O \ket{vac}\end{equation}
 using the fact that both $H$ and $H_L$ have at least one lowering operator on the right we can say $H\ket{vac} = H_L\ket{vac} = 0$, therefore also
 \begin{equation}U(t_1,t_0)\ket{vac}= U^\dagger(t_1,t_0)\ket{vac}= \ket{vac}\end{equation}
-this proprierty allows us to write
+this property allows us to write
 \begin{equation}\ket{\psi_{out}} = U(t_1,t_0)e^OU^\dagger(t_1,t_0)\ket{vac} = e^{U(t_1,t_0)OU^\dagger(t_1,t_0) }\ket{vac}\equiv e^{\overline{O}(t_0)}\ket{vac}\end{equation}
 where 
 \begin{equation}\label{dynamicO}\overline{O}(t) = U(t_1,t)OU^\dagger(t_1,t)\end{equation}
@@ -217,7 +210,7 @@ and it satisfies $\overline{O}(t_1) = O$. Differentiating \eqref{dynamicO} and u
 \begin{equation}\label{motionO}i\hbar \frac{d\overline{O}(t)}{dt} = [\overline{O}(t),\hat{V}(t)]\end{equation}
 where
 \begin{equation}\hat{V}(t) \equiv U(t_1,t)V(t)U^\dagger(t_1,t)\end{equation}
-In conclusion the approch that can be taken is first find $V(t)$ and $\hat{V}(t)$ for the system and then integrate equation \eqref{motionO} from $t=t_1$ back to $t=t_0$ subjet to the final condition $\overline{O}(t_1) = O$, after that we can determine $\ket{\psi_{out}}$ using \eqref{outfinal}.
+In conclusion the approach that can be taken is to first find $V(t)$ and $\hat{V}(t)$ for the system and then integrate equation \eqref{motionO} from $t=t_1$ back to $t=t_0$ subject to the final condition $\overline{O}(t_1) = O$; after that we can determine $\ket{\psi_{out}}$ using \eqref{outfinal}.
 
 \input{last.tex}
 
