@@ -5,7 +5,7 @@ In addition to this, the main advantage of using two coupled resonators is that 
 In order to describe this process, the first chapter gives a description of the basic structures, microrings and waveguides and how we can describe their behaviour using a mathematical formalism. The second chapter is devoted to the explanation of the physics behind the phenomena and the mathematics which can be used to carry out the calculation. Finally in the last chapter the model and the results are presented.\\
 The results obtained in this work are valid in general, however the numerical examples presented are based on a silicon structure.
 \section{Integrated optics}
-The microelectronics has been widely succesful and changed our daily life and work; nowadays microelectronics is present almost everywhere. The great success of these technologies is due to many reasons. Moore's law predicts that the number of transistors in a chip increases while their size decreases. The prediction still holds today, but we are reaching a saturation point: at the beginning, improvements were possible by increasing the clock frequencies of the processing units, but now the approach used is to increase the number of processing units. This kind of improvement faces several problems: the cores need to communicate with each other, so the problem is to realise efficient communication with high bandwidth and low power consumption. Photonics is a platform that can be used to achieve such goal: with light is possible to realize ultra-high speed switches, it has low power consumption, it doesn't have electromagnetic noise, it doesn't have Joule effect and since the wavelenght used is in the order of Thz, the bandwidth avaiable is much larger then in electronics, moreover it's possible to send signals over different wavelength at the same time. Several platforms have been developed with different media, such as silicon, lithium niobate, gallium arsenide and . Since the electronics industry is based on silicon, Silicon-on-Insulator (SOI) photonics is a platform to build optical chips. Indeed, the technology used for the fabrication of silicon chips is well studied and understood, it has reached a high level of sophistication and the industries and the infrastructures already exist. Futhermore silicon photonic is compatible with CMOS technology used in electronic chips, hence hybrid chips with electronics and photonics can be realised. Another important feature of silicon is its transparency at the important Telecom wavelengths (1300-1600 nm), which allows the fabrication of optic circuits with very low power losses. The aim of silicon photonics is to follow the philosophy behind microelectronics: small chips composed by few building blocks that can be used to build different devices changing the topology of the chip, and to realise these building blocks with as few materials as possible with a standard established among manifacturers.\\
+The microelectronics has been widely succesful and changed our daily life and work; nowadays microelectronics is present almost everywhere. The great success of these technologies is due to many reasons. Moore's law predicts that the number of transistors in a chip keep increasing while their size decreasing. The prediction still holds today, but we are reaching a saturation point: at the beginning, improvements were possible by increasing the clock frequencies of the processing units, but now the approach used is to increase the number of processing units. This kind of improvement faces several problems: the cores need to communicate with each other, so the problem is to realise efficient communication with high bandwidth and low power consumption. Photonics is a platform that can be used to achieve such goal: with light is possible to realize ultra-high speed switches, it has low power consumption, it doesn't have electromagnetic noise, it doesn't have Joule effect and since the wavelenght used is in the order of Thz, the bandwidth avaiable is much larger then in electronics, moreover it's possible to send signals over different wavelength at the same time. Several platforms have been developed with different media, such as silicon or lithium niobate. Since the electronics industry is based on silicon, Silicon-on-Insulator (SOI) photonics is a great platform to build optical chips. Indeed, the technology used for the fabrication of silicon chips is well studied and understood, it has reached a high level of sophistication and the industries and the infrastructures already exist. Futhermore silicon photonic is compatible with CMOS technology used in electronic chips, hence hybrid chips with electronics and photonics can be realised. Another important feature of silicon is its transparency at the important Telecom wavelengths (1300-1600 nm), which allows the fabrication of optic circuits with very low power losses. The aim of silicon photonics is to follow the philosophy behind microelectronics: small chips composed by few building blocks that can be used to build different devices changing the topology of the chip, and to realise these building blocks with as few materials as possible with a standard established among manifacturers.\\
 From the point of view of quantum mechanics, light is composed by elementary particles called photons. Photons have quantum properties, hence it is possible to build quantum devices using the already implemented building blocks for silicon photonics. Photons can be used to represent quantum bits and due to their low decoherence effects, they are an attractive approch to quantum information processing. Quantum technologies can drastically improve some tasks in computation, measurement and communication , and quantum silicon photonics is a great platform for developing such technologies on a single chip. 
 
 
@@ -87,17 +87,24 @@ A more interesting configuration of microresonators is presented in figure \ref{
 where $FE_1$ refers to the ring on the left and $FE_2$ to the ring on the right, $\varphi = \beta L$ and $L=2\pi R$. We stress that the phases $\phi_1$ and $\phi_2$ refer to the phases induced by the heaters between the rings, while $\varphi_1$ and $\varphi_2$ are the phases inside the rings.\\
  Figure \ref{FE} shows field enhancements in the case of $\phi_1 + \phi_2 = 2m\pi$ around a single ring resonance wavelength. The condition $\phi_1 + \phi_2 = 2m\pi$ is important because it enhances the optical power inside the ring and, as can be seen from the figure, split the energy equally between the two rings. An equally split energy means that the two rings are indistinguishable and therefore there is the same probability that the photons are generated inside one or the other ring. Indeed, if the energy is not split equally, it means that only one ring works and the configuration is identical to a simple ADF.
 
-
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width = .8\textwidth]{img/FE_fase_2pi}
+\includegraphics[width = .6\textwidth]{img/FEsingle}
+\caption{Field enhancement of an ADF with a single ring}
+\label{FE}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width = .7\textwidth]{img/FE_fase_2pi}
 \caption{Field enhancements with $\phi_1+\phi_2 = 2\pi$, ring 1 refers to the left one and 2 to the right one}
 \label{FE}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \centering
-\includegraphics[width = .8\textwidth]{img/FE_fase_pi}
+\includegraphics[width = .7\textwidth]{img/FE_fase_pi}
 \caption{Field enhancements with $\phi_1+\phi_2 = -\pi$, ring 1 refers to the left one and 2 to the right one}
 \label{FE}
 \end{figure}
+
