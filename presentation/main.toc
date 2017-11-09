@@ -1,7 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Aim of the thesis}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Basic blocks}{4}{0}{1}
-\beamer@sectionintoc {2}{Physical framework}{13}{0}{2}
-\beamer@subsectionintoc {2}{1}{Non linear optics}{13}{0}{2}
-\beamer@subsectionintoc {2}{2}{Quantum optics}{19}{0}{2}
